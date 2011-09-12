@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
-<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.0">
-  <App xmlns="" ProductID="{a39f83d4-2cf2-470c-a859-e20f400961ad}" Title="DansTonChat" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="DansTonChat author" Description="Sample description" Publisher="DansTonChat">
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{a39f83d4-2cf2-470c-a859-e20f400961ad}" Title="DansTonChat" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="DansTonChat author" Description="Sample description" Publisher="DansTonChat">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <!--<Capability Name="ID_CAP_GAMERSERVICES"/>-->
@@ -10,14 +9,14 @@
       <Capability Name="ID_CAP_LOCATION"/>
       <Capability Name="ID_CAP_MEDIALIB"/>
       <Capability Name="ID_CAP_MICROPHONE"/>-->
-      <Capability Name="ID_CAP_NETWORKING"/>
+      <Capability Name="ID_CAP_NETWORKING" />
       <!--<Capability Name="ID_CAP_PHONEDIALER"/>
       <Capability Name="ID_CAP_PUSH_NOTIFICATION"/>
       <Capability Name="ID_CAP_SENSORS"/>
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT"/>-->
     </Capabilities>
     <Tasks>
-      <DefaultTask  Name ="_default" NavigationPage="MainPage.xaml"/>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="DansTonChatToken" TaskName="_default">
