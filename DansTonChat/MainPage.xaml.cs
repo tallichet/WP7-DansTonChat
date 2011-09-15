@@ -11,6 +11,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using DansTonChat.Rss;
+using Microsoft.Phone.Tasks;
+using Microsoft.Phone.Shell;
 
 namespace DansTonChat
 {
@@ -57,6 +59,40 @@ namespace DansTonChat
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
             Feed.Load();
+        }
+
+        private void Browse(object sender, EventArgs e)
+        {
+            var item = ListQuotes.SelectedItem as FeedItem;
+            if (item == null)
+            {
+                MessageBox.Show("Vous devez selectionner une quote avant de choisir cette action");
+                return;
+            }
+
+            var task = new WebBrowserTask();
+            task.Uri = new Uri(item.Link);
+            task.Show();
+        }
+
+        private void Share(object sender, EventArgs e)
+        {
+            var item = ListQuotes.SelectedItem as FeedItem;
+            if (item == null)
+            {
+                MessageBox.Show("Vous devez selectionner une quote avant de choisir cette action");
+                return;
+            }
+
+            var task = new ShareStatusTask();
+            task.Status = "Vu sur Dans ton chat...\r\n" + item.Description;
+            task.Show();            
+        }
+
+        private void ListQuotes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            (ApplicationBar.MenuItems[0] as ApplicationBarMenuItem).IsEnabled = ListQuotes.SelectedItem != null;
+            (ApplicationBar.MenuItems[1] as ApplicationBarMenuItem).IsEnabled = ListQuotes.SelectedItem != null;
         }        
     }
 }

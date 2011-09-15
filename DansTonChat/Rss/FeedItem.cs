@@ -23,12 +23,17 @@ namespace DansTonChat.Rss
         public string Title { get; set; }
         [DataMember]
         public DateTime PubDate { get; set; }
+        [DataMember]
+        public string Link { get; set; }
 
         public FeedItem(XElement item)
         {
+            var feedburner = XNamespace.Get("http://rssnamespace.org/feedburner/ext/1.0");
+
             Title = item.Element("title").Value;
             Description = ParseDescription(item.Element("description").Value);
             PubDate = DateTime.Parse(item.Element("pubDate").Value);
+            Link = item.Element(feedburner+"origLink").Value;
         }
 
         public string ParseDescription(string description)

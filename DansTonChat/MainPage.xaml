@@ -41,7 +41,7 @@
         </Grid>
 
         <!--ContentPanel - place additional content here-->
-        <ListBox Grid.Row="1" ItemsSource="{Binding Source={StaticResource Feed}}">
+        <ListBox Grid.Row="1" ItemsSource="{Binding Source={StaticResource Feed}}" Name="ListQuotes" SelectionChanged="ListQuotes_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,20">
@@ -56,12 +56,12 @@
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/appbar.refresh.rest.png" Text="refresh" Click="Refresh_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/appbar.refresh.rest.png" Text="rafraichir" Click="Refresh_Click"/>
             <!--<shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>-->
-            <!--<shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>-->
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="partager" Click="Share" x:Name="MenuShare" IsEnabled="False"/>
+                <shell:ApplicationBarMenuItem Text="ouvrir dans le navigateur" Click="Browse" x:Name="MenuBrowse" IsEnabled="False"/>
+            </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
